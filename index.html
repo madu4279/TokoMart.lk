@@ -302,19 +302,23 @@
             border: 2px solid rgba(255, 255, 255, 0.5);
         }
 
-        /* Footer Styles - Compact and Mobile Friendly */
+        /* Footer Styles - Fixed for all screen sizes */
         .footer {
             background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(15px);
-            padding: 0.5rem;
+            padding: 1rem;
             text-align: center;
             color: rgba(255, 255, 255, 0.9);
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
             width: 100%;
             z-index: 10;
             position: relative;
             margin-top: auto;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .footer strong {
@@ -325,42 +329,121 @@
         .footer-content {
             max-width: 800px;
             margin: 0 auto;
-            line-height: 1.3;
+            line-height: 1.4;
         }
 
-        /* Mobile Optimization */
-        @media (max-width: 768px) {
+        /* Mobile and Tablet Optimization - Updated ranges */
+        @media (max-width: 1024px) {
             body {
-                padding: 0;
                 min-height: 100vh;
-                height: 100vh;
-                overflow: hidden;
+                height: auto;
+                overflow-x: hidden;
+                overflow-y: auto;
             }
 
             .main-content {
-                padding: 0.5rem;
-                height: calc(100vh - 40px); /* Account for footer */
-                overflow: hidden;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                padding: 1rem;
+                min-height: calc(100vh - 70px);
+                height: auto;
+                overflow: visible;
             }
 
             .container {
                 width: 95%;
-                padding: 1rem;
+                padding: 2rem 1.5rem;
                 margin: 0;
                 height: auto;
                 max-height: none;
-                overflow: visible;
+            }
+
+            .footer {
+                padding: 0.75rem;
+                font-size: 0.75rem;
+                min-height: 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 0.75rem;
+                min-height: calc(100vh - 60px);
+            }
+
+            .container {
+                width: 95%;
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                line-height: 1.2;
+                margin-bottom: 1rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .description {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .logo-container {
+                padding: 0.75rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .main-logo {
+                max-width: 200px;
+                max-height: 120px;
+            }
+            
+            .contact-section {
+                padding: 1.5rem;
+                margin-top: 1.5rem;
+            }
+
+            .contact-title {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+            
+            .contact-buttons {
+                gap: 1rem;
+            }
+            
+            .contact-btn {
+                padding: 12px 20px;
+                font-size: 1rem;
+                min-width: 160px;
+            }
+
+            .footer {
+                padding: 0.6rem;
+                font-size: 0.7rem;
+                min-height: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 0.5rem;
+                min-height: calc(100vh - 50px);
+            }
+
+            .container {
+                width: 98%;
+                padding: 1rem;
+                border-radius: 20px;
             }
 
             h1 {
                 font-size: 1.8rem;
-                line-height: 1.2;
                 margin-bottom: 0.8rem;
             }
-            
+
             .subtitle {
                 font-size: 1rem;
                 margin-bottom: 1rem;
@@ -370,19 +453,19 @@
                 font-size: 0.9rem;
                 margin-bottom: 1.2rem;
             }
-            
+
+            .main-logo {
+                max-width: 140px;
+                max-height: 80px;
+            }
+
             .logo-container {
                 padding: 0.5rem;
                 margin-bottom: 1rem;
             }
-            
-            .main-logo {
-                max-width: 120px;
-                max-height: 70px;
-            }
-            
+
             .contact-section {
-                padding: 0.8rem;
+                padding: 1rem;
                 margin-top: 1rem;
             }
 
@@ -390,13 +473,13 @@
                 font-size: 1rem;
                 margin-bottom: 0.8rem;
             }
-            
+
             .contact-buttons {
                 flex-direction: column;
                 align-items: center;
-                gap: 0.6rem;
+                gap: 0.75rem;
             }
-            
+
             .contact-btn {
                 width: 100%;
                 max-width: 220px;
@@ -404,39 +487,22 @@
                 font-size: 0.9rem;
             }
 
-            .floating-shape {
-                display: none;
-            }
-
-            /* Compact footer for mobile */
             .footer {
-                padding: 0.3rem;
+                padding: 0.4rem;
                 font-size: 0.65rem;
-                height: 40px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                min-height: 45px;
             }
         }
 
-        @media (max-width: 480px) {
-            body {
-                height: 100vh;
-                overflow: hidden;
-            }
-
+        @media (max-width: 320px) {
             .main-content {
                 padding: 0.3rem;
-                height: calc(100vh - 35px);
-                overflow: hidden;
+                min-height: calc(100vh - 40px);
             }
 
             .container {
-                width: 98%;
                 padding: 0.8rem;
                 border-radius: 15px;
-                height: auto;
-                max-height: none;
             }
 
             h1 {
@@ -455,8 +521,8 @@
             }
 
             .main-logo {
-                max-width: 100px;
-                max-height: 60px;
+                max-width: 120px;
+                max-height: 70px;
             }
 
             .logo-container {
@@ -465,7 +531,7 @@
             }
 
             .contact-section {
-                padding: 0.6rem;
+                padding: 0.8rem;
                 margin-top: 0.8rem;
             }
 
@@ -476,71 +542,16 @@
             }
 
             .footer {
-                padding: 0.25rem;
+                padding: 0.3rem;
                 font-size: 0.6rem;
-                height: 35px;
+                min-height: 40px;
             }
         }
 
-        /* Fix for very small screens */
-        @media (max-width: 320px) {
-            body {
-                height: 100vh;
-                overflow: hidden;
-            }
-
-            .main-content {
-                height: calc(100vh - 30px);
-                padding: 0.2rem;
-                overflow: hidden;
-            }
-
-            .container {
-                padding: 0.6rem;
-                height: auto;
-                max-height: none;
-            }
-
-            h1 {
-                font-size: 1.3rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .subtitle {
-                font-size: 0.8rem;
-                margin-bottom: 0.6rem;
-            }
-
-            .description {
-                font-size: 0.75rem;
-                margin-bottom: 0.8rem;
-            }
-
-            .main-logo {
-                max-width: 90px;
-                max-height: 50px;
-            }
-
-            .logo-container {
-                padding: 0.3rem;
-                margin-bottom: 0.6rem;
-            }
-
-            .contact-section {
-                padding: 0.5rem;
-                margin-top: 0.6rem;
-            }
-
-            .contact-btn {
-                padding: 8px 12px;
-                font-size: 0.8rem;
-                max-width: 180px;
-            }
-
-            .footer {
-                padding: 0.2rem;
-                font-size: 0.55rem;
-                height: 30px;
+        /* Hide floating shapes on smaller screens for better performance */
+        @media (max-width: 1024px) {
+            .floating-shape {
+                display: none;
             }
         }
 
@@ -611,6 +622,7 @@
                     </a>
                     <a href="https://wa.me/940774868273" target="_blank" class="contact-btn whatsapp-btn">
                         <img src="wa.png" alt="WhatsApp" style="width: 20px; height: 20px; object-fit: contain;">
+                        <img src="wa.png" alt="WhatsApp" style="width: 20px; height: 20px; object-fit: contain;">
                         WhatsApp
                     </a>
                 </div>
@@ -618,7 +630,7 @@
         </div>
     </div>
 
-    <!-- Compact Footer -->
+    <!-- Footer - Now properly visible on all screen sizes -->
     <div class="footer">
         <div class="footer-content">
             <p>&copy; 2025 <strong>TokoMart.lk</strong> - All Rights Reserved | Design by <strong>TokoMart.lk</strong></p>
@@ -627,7 +639,7 @@
 
     <script>
         // Enhanced interactive elements
-        if (window.innerWidth > 768) {
+        if (window.innerWidth > 1024) {
             document.addEventListener('mousemove', function(e) {
                 const shapes = document.querySelectorAll('.floating-shape');
                 shapes.forEach((shape, index) => {
@@ -646,31 +658,21 @@
                 container.style.transform = `perspective(1000px) rotateY(${(mouseX - 0.5) * 5}deg) rotateX(${(mouseY - 0.5) * -5}deg)`;
             });
         } else {
-            // Mobile device motion effects
+            // Mobile and tablet device motion effects
             if (window.DeviceMotionEvent) {
                 window.addEventListener('devicemotion', function(e) {
-                    const shapes = document.querySelectorAll('.floating-shape');
                     const container = document.querySelector('.container');
                     
                     // Get acceleration data
                     const x = e.accelerationIncludingGravity.x || 0;
                     const y = e.accelerationIncludingGravity.y || 0;
                     
-                    // Apply subtle movement based on device motion
-                    shapes.forEach((shape, index) => {
-                        const speed = (index + 1) * 0.3;
-                        const moveX = x * speed;
-                        const moveY = y * speed;
-                        
-                        shape.style.transform = `translate(${moveX}px, ${moveY}px) rotate(${moveX}deg)`;
-                    });
-                    
-                    // Container tilt effect
-                    container.style.transform = `perspective(1000px) rotateY(${x * 0.5}deg) rotateX(${y * 0.5}deg)`;
+                    // Container tilt effect (subtle for mobile)
+                    container.style.transform = `perspective(1000px) rotateY(${x * 0.3}deg) rotateX(${y * 0.3}deg)`;
                 });
             }
             
-            // Fallback: Touch-based parallax
+            // Touch-based parallax for mobile/tablet
             let touchStartX = 0;
             let touchStartY = 0;
             
@@ -680,27 +682,16 @@
             });
             
             document.addEventListener('touchmove', function(e) {
-                e.preventDefault(); // Prevent scrolling
-                
                 const touchX = e.touches[0].clientX;
                 const touchY = e.touches[0].clientY;
                 const deltaX = (touchX - touchStartX) / window.innerWidth;
                 const deltaY = (touchY - touchStartY) / window.innerHeight;
                 
-                const shapes = document.querySelectorAll('.floating-shape');
                 const container = document.querySelector('.container');
                 
-                shapes.forEach((shape, index) => {
-                    const speed = (index + 1) * 20;
-                    const moveX = deltaX * speed;
-                    const moveY = deltaY * speed;
-                    
-                    shape.style.transform = `translate(${moveX}px, ${moveY}px) rotate(${moveX}deg)`;
-                });
-                
                 // Container tilt effect
-                container.style.transform = `perspective(1000px) rotateY(${deltaX * 10}deg) rotateX(${deltaY * -10}deg)`;
-            }, { passive: false });
+                container.style.transform = `perspective(1000px) rotateY(${deltaX * 8}deg) rotateX(${deltaY * -8}deg)`;
+            });
         }
 
         // Animate elements on load
@@ -723,6 +714,28 @@
         setInterval(() => {
             document.body.style.filter = `hue-rotate(${Math.random() * 30}deg)`;
         }, 5000);
+
+        // Ensure footer is always visible
+        function adjustLayout() {
+            const footer = document.querySelector('.footer');
+            const mainContent = document.querySelector('.main-content');
+            
+            // Force visibility
+            footer.style.display = 'flex';
+            footer.style.visibility = 'visible';
+            footer.style.opacity = '1';
+            
+            // Adjust main content height to ensure footer space
+            const footerHeight = footer.offsetHeight;
+            mainContent.style.minHeight = `calc(100vh - ${footerHeight}px)`;
+        }
+
+        // Run on load and resize
+        window.addEventListener('load', adjustLayout);
+        window.addEventListener('resize', adjustLayout);
+        
+        // Run immediately
+        adjustLayout();
     </script>
 </body>
 </html>
