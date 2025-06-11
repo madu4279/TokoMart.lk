@@ -21,6 +21,7 @@
             background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #1d4ed8 100%);
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             overflow-x: hidden;
@@ -78,6 +79,15 @@
             }
         }
 
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 2rem 1rem;
+        }
+
         .container {
             text-align: center;
             color: white;
@@ -91,7 +101,6 @@
             box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
             max-width: 600px;
             width: 90%;
-            margin: 1rem;
             animation: slideUp 1s ease-out;
             isolation: isolate;
         }
@@ -233,19 +242,48 @@
             border: 2px solid rgba(255, 255, 255, 0.4);
         }
 
+        /* Footer Styles - Fixed positioning */
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            width: 100%;
+            z-index: 10;
+            position: relative;
+            margin-top: auto;
+        }
+
+        .footer strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+
         /* Mobile Optimization */
         @media (max-width: 768px) {
             body {
-                padding: 0.5rem;
-                align-items: flex-start;
-                padding-top: 2rem;
+                padding: 0;
+                min-height: 100vh;
+            }
+
+            .main-content {
+                padding: 1rem 0.5rem;
+                min-height: calc(100vh - 80px);
             }
 
             .container {
                 width: 95%;
                 padding: 1.5rem;
-                margin: 0.5rem;
-                min-height: auto;
+                margin: 0;
             }
 
             h1 {
@@ -298,11 +336,22 @@
             .floating-circle {
                 display: none;
             }
+
+            .footer {
+                font-size: 0.75rem;
+                padding: 0.8rem 0.5rem;
+                position: relative;
+            }
+
+            .footer-content {
+                padding: 0 0.5rem;
+            }
         }
 
         @media (max-width: 480px) {
-            body {
-                padding-top: 1rem;
+            .main-content {
+                padding: 0.5rem 0.25rem;
+                min-height: calc(100vh - 70px);
             }
 
             .container {
@@ -332,6 +381,11 @@
                 padding: 12px 16px;
                 font-size: 0.9rem;
             }
+
+            .footer {
+                font-size: 0.7rem;
+                padding: 0.6rem 0.4rem;
+            }
         }
 
         /* Fix for very small screens */
@@ -347,6 +401,11 @@
             .main-logo {
                 max-width: 120px;
                 max-height: 70px;
+            }
+
+            .footer {
+                font-size: 0.65rem;
+                padding: 0.5rem 0.3rem;
             }
         }
 
@@ -385,34 +444,6 @@
             overflow-x: hidden;
             width: 100%;
         }
-
-        /* Footer Styles */
-        .footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            padding: 0.8rem 1rem;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-            z-index: 5;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer strong {
-            color: #ffffff;
-            font-weight: 600;
-        }
-
-        @media (max-width: 768px) {
-            .footer {
-                font-size: 0.8rem;
-                padding: 0.6rem 0.8rem;
-            }
-        }
     </style>
 </head>
 <body>
@@ -422,36 +453,40 @@
         <div class="floating-circle circle-3"></div>
     </div>
 
-    <div class="container">
-        <div class="logo-container">
-            <img src="Tokomart2.png" alt="TokoMart.lk Logo" class="main-logo" />
-        </div>
+    <div class="main-content">
+        <div class="container">
+            <div class="logo-container">
+                <img src="Tokomart2.png" alt="TokoMart.lk Logo" class="main-logo" />
+            </div>
 
-        <h1>Coming Soon<span class="loading-dots"><span></span><span></span><span></span></span></h1>
-        <p class="subtitle">Your Style. Your Store.</p>
-        <p class="description">
-            Get ready for an exceptional shopping experience! 
-            TokoMart.lk will be your ultimate destination for style and quality products.
-        </p>
+            <h1>Coming Soon<span class="loading-dots"><span></span><span></span><span></span></span></h1>
+            <p class="subtitle">Your Style. Your Store.</p>
+            <p class="description">
+                Get ready for an exceptional shopping experience! 
+                TokoMart.lk will be your ultimate destination for style and quality products.
+            </p>
 
-        <div class="contact-section">
-            <h3 class="contact-title">Connect With Us</h3>
-            <div class="contact-buttons">
-                <a href="https://www.facebook.com/share/16Z6QQt1Zj/?mibextid=wwXIfr" target="_blank" class="contact-btn facebook-btn">
-                    <span>📘</span>
-                    Facebook
-                </a>
-                <a href="https://wa.me/940774868273" target="_blank" class="contact-btn whatsapp-btn">
-                    <span>💬</span>
-                    WhatsApp
-                </a>
+            <div class="contact-section">
+                <h3 class="contact-title">Connect With Us</h3>
+                <div class="contact-buttons">
+                    <a href="https://www.facebook.com/share/16Z6QQt1Zj/?mibextid=wwXIfr" target="_blank" class="contact-btn facebook-btn">
+                        <span>📘</span>
+                        Facebook
+                    </a>
+                    <a href="https://wa.me/940774868273" target="_blank" class="contact-btn whatsapp-btn">
+                        <span>💬</span>
+                        WhatsApp
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
     <div class="footer">
-        <p>&copy; 2025 <strong>TokoMart.lk</strong> All Rights Reserved. Design by <strong>TokoMart.lk</strong></p>
+        <div class="footer-content">
+            <p>&copy; 2025 <strong>TokoMart.lk</strong> - All Rights Reserved | Designed & Developed by <strong>TokoMart.lk</strong></p>
+        </div>
     </div>
 
     <script>
